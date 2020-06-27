@@ -32,7 +32,7 @@ const RootQuery = new GraphQLObjectType({
 			type: BookType,
 			args:{id:{type: GraphQLString}},
 			resolve(parent, args) {
-				return _find(books, {id: args.id});
+				return Book.find(books, {id: args.id});
 			}
 		},
 		bookWithName: {
@@ -40,14 +40,14 @@ const RootQuery = new GraphQLObjectType({
 			args:{name: {type: GraphQLString}},
 			resolve(parent, args) {
 				var n = '*'+args.name+'*';
-				return _find(books, {name: {$regex: args.name}});
+				return Book.find(books, {name: {$regex: n}});
 			}
 		},
 		books: {
 			type: new GraphQLList(BookType),
 			resolve(parent, args) {
 
-				return _find({});
+				return Book.find({});
 			}
 		}
 	}
