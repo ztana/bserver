@@ -77,7 +77,7 @@ const Mutation = new GraphQLObjectType({
 	}
 });
 
-module.exports = new GraphqQLSchema({
+module.exports = new GraphQLSchema({
 	query : RootQuery,
   mutation: Mutation
 
