@@ -36,11 +36,11 @@ const RootQuery = new GraphQLObjectType({
 			}
 		},
 		bookWithName: {
-			type:BookType,
+			type: new GraphQLList(BookType),
 			args:{name: {type: GraphQLString}},
 			resolve(parent, args) {
 				var n = '/'+args.name+'/';
-				return Book.find(books, {$match:{name: {$regex: args.name}}});
+				return Book.find(books, {name: {$regex: n}});
 			}
 		},
 		books: {
