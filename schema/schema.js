@@ -39,8 +39,8 @@ const RootQuery = new GraphQLObjectType({
 			type: new GraphQLList(BookType),
 			args:{name: {type: GraphQLString}},
 			resolve(parent, args) {
-				var n = '/'+args.name+'/';
-				return Book.find({"name": {$regex: n}});
+				var n = '/'+args.name+'/'; //{"name": {$regex: n}}
+				return Book.find(books, {name: args.name});
 			}
 		},
 		books: {
