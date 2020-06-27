@@ -81,7 +81,7 @@ const Mutation = new GraphQLObjectType({
 			},
 			resolve(parent, args){
 					Book.findByIdAndUpdate(args.id, {
-						link = args.link;
+						link = args.link
 					});
 			}
 		}
