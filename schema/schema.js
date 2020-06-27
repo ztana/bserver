@@ -42,7 +42,8 @@ const RootQuery = new GraphQLObjectType({
 				var n = "/";
 				n.concat(args.name);
 				n.concat("/"); //{"name": {$regex: n}}
-				return Book.find({"name": {$regex: args.name}});
+				return Book.find({"name": {$regex: args.name
+				}});
 			}
 		},
 		books: {
@@ -79,7 +80,7 @@ const Mutation = new GraphQLObjectType({
 					link: { type: new GraphQLNonNull(GraphQLString) }
 			},
 			resolve(parent, args){
-					let book = _find(books, {id: args.id});
+					let book = Book.findById(args.id);
 					book.link = args.link;
 					return book.save();
 			}
