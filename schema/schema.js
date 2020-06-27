@@ -3,7 +3,7 @@ const _ = require("lodash");
 
 const Book = require('../model/book');
 
-const {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLSchema, GraphQLList, GraphQLNonNull} = graphql;
+const {GraphQLObjectType, GraphQLString, GraphQLID, GraphQLSchema, GraphQLList, GraphQLInt, GraphQLNonNull} = graphql;
 
 const BookType = new  GraphQLObjectType({
 	name: 'Book',
