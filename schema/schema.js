@@ -82,6 +82,14 @@ const Mutation = new GraphQLObjectType({
 			resolve(parent, args){
 					Book.findByIdAndUpdate(args.id, {
 						link : args.link
+					},
+          function (err, docs) {
+				    if (err){
+				        console.log(err)
+				    }
+				    else{
+				        console.log("Updated User : ", docs);
+				    }
 					});
 			}
 		}
