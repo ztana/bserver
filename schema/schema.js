@@ -80,9 +80,9 @@ const Mutation = new GraphQLObjectType({
 					link: { type: new GraphQLNonNull(GraphQLString) }
 			},
 			resolve(parent, args){
-					let book = Book.findById(args.id);
-					book.link = args.link;
-					return book.save();
+					Book.findByIdAndUpdate(args.id, {
+						link = args.link;
+					});
 			}
 		}
 	}
