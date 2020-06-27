@@ -42,7 +42,7 @@ const RootQuery = new GraphQLObjectType({
 				var n = "/";
 				n.concat(args.name);
 				n.concat("/"); //{"name": {$regex: n}}
-				return Book.find({"name": {$regex: n}});
+				return Book.find({"name": {$regex: args.name}});
 			}
 		},
 		books: {
